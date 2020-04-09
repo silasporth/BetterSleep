@@ -1,0 +1,10 @@
+name: BetterSleep
+version: 1.0
+
+author: Lavariator
+
+main: betterSleep.Main
+
+commands:
+  bettersleep:
+    usage: /<command> [pct/mode] [<percentage>/<percentage/playercount>]
