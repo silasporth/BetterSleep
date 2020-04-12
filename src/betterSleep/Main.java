@@ -32,9 +32,6 @@ public class Main extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerBedEnter(final PlayerBedEnterEvent event){
-        if(event.getBedEnterResult() != PlayerBedEnterEvent.BedEnterResult.OK){
-            return;
-        }
         sleepingPlayers.add(event.getPlayer());
         bedMessage(event.getPlayer(), "entered");
 
