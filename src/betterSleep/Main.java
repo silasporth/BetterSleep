@@ -75,6 +75,7 @@ public class Main extends JavaPlugin implements Listener {
                 case 1:
                     if (args[0].equalsIgnoreCase("pct")) {
                         sender.sendMessage("Percentage: " + percentage);
+                        return true;
                     }else if(args[0].equalsIgnoreCase("mode")) {
                         String stringMode;
                         if(!mode){
@@ -83,9 +84,10 @@ public class Main extends JavaPlugin implements Listener {
                             stringMode = "\"playercount\"";
                         }
                         sender.sendMessage("Mode: " + stringMode);
+                        return true;
                     }else{
                         sender.sendMessage("§4§lPlease enter a valid command!");}
-                    return false;
+                        return false;
                 case 2:
                     if (args[0].equalsIgnoreCase("pct")) {
                         try {
@@ -172,7 +174,7 @@ public class Main extends JavaPlugin implements Listener {
         if(!mode){
             output = "(" + Integer.toString((int)Math.round(d)) + "%/" + percentage + "%)";
         }else{
-            output = "(" + sleepingPlayers.size() + "/" + (percentage/100*getServer().getWorlds().get(0).getPlayers().size()) + ")";
+            output = "(" + sleepingPlayers.size() + "/" + (int)(percentage/100d*getServer().getWorlds().get(0).getPlayers().size()) + ")";
         }
 
         getServer().broadcastMessage("§e" + player.getName() + " " + string + " the bed. " + output);
