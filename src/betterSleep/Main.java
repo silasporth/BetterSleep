@@ -165,11 +165,11 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     private boolean enoughPlayers(){
-        return sleepingPlayers.size() / getServer().getWorlds().get(0).getPlayers().size() >= (percentage / 100d);
+        return ((double)(sleepingPlayers.size())/getServer().getWorlds().get(0).getPlayers().size() >= (percentage / 100d));
     }
 
     private void bedMessage(Player player, String string){
-        double d = sleepingPlayers.size() / getServer().getWorlds().get(0).getPlayers().size()*100;
+        double d = (double)sleepingPlayers.size() / getServer().getWorlds().get(0).getPlayers().size()*100;
         String output;
         if(!mode){
             output = "(" + Integer.toString((int)Math.round(d)) + "%/" + percentage + "%)";
