@@ -32,6 +32,12 @@ public class Main extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerBedEnter(final PlayerBedEnterEvent event){
+        if(getServer().getWorlds().get(0).getTime() > 0 && getServer().getWorlds().get(0).getTime() < 12541 && !getServer().getWorlds().get(0).isThundering())
+            return;
+
+        System.out.println(getServer().getWorlds().get(0).getTime());
+        System.out.println(getServer().getWorlds().get(0).isThundering());
+
         sleepingPlayers.add(event.getPlayer());
         bedMessage(event.getPlayer(), "entered");
 
@@ -47,6 +53,7 @@ public class Main extends JavaPlugin implements Listener {
             }
             getServer().getWorlds().get(0).setTime(0);
             getServer().getWorlds().get(0).setStorm(false);
+            getServer().getWorlds().get(0).setThundering(false);
             getServer().broadcastMessage("§aNight successfully skipped!");
 
             getServer().getWorlds().get(0).getPlayers().forEach((player) -> {
@@ -60,7 +67,7 @@ public class Main extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerBedLeave(PlayerBedLeaveEvent event) {
         sleepingPlayers.remove(event.getPlayer());
-        if(getServer().getWorlds().get(0).getTime()>12000){
+        if((getServer().getWorlds().get(0).getTime() > 12541 && getServer().getWorlds().get(0).getTime() < 23458) || getServer().getWorlds().get(0).isThundering()){
             bedMessage(event.getPlayer(), "left");
         }
     }
@@ -172,7 +179,7 @@ public class Main extends JavaPlugin implements Listener {
         double d = (double)sleepingPlayers.size() / getServer().getWorlds().get(0).getPlayers().size()*100;
         String output;
         if(!mode){
-            output = "(" + Integer.toString((int)Math.round(d)) + "%/" + percentage + "%)";
+            output = "(" + (int) Math.round(d) + "%/" + percentage + "%)";
         }else{
             double v = percentage/100d*getServer().getWorlds().get(0).getPlayers().size();
             if(v==0){
