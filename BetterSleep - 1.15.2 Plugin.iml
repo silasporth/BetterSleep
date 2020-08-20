@@ -7,17 +7,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="resources" level="project" />
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../Verschiedenes/Test Server/spigot.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Verschiedenes/Spigot/Test Server 1.15.2/spigot.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/../Verschiedenes/Test Server/spigot.jar!/" />
+          <root url="jar://$MODULE_DIR$/../Verschiedenes/Spigot/Test Server 1.15.2/spigot.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="resources" level="project" />
   </component>
 </module>
