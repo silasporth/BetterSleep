@@ -32,6 +32,9 @@ public class Main extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onPlayerBedEnter(final PlayerBedEnterEvent event){
+        if(event.getPlayer().getWorld().getEnvironment().getId() != 0)
+            return;
+
         if(getServer().getWorlds().get(0).getTime() > 0 && getServer().getWorlds().get(0).getTime() < 12541 && !getServer().getWorlds().get(0).isThundering())
             return;
 
